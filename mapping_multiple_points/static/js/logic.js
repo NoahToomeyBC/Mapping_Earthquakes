@@ -21,18 +21,12 @@ let streets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{
 // Then we add our 'graymap' tile layer to the map.
 streets.addTo(map);
 
-// Git city data from cities.js
-let cityData = cities;
 
-// Loop through the cities array and create one marker for each city.
-cityData.forEach(function(city) {
-  console.log(city)
-  L.circleMarker(city.location,{
-    weight: 4,
-    color: "orange",
-    radius: city.population/200000
-  })
-  // L.marker(city.location)
-  .bindPopup("<h2>" + city.city + ", " + city.state + "</h2> <hr> <h3>Population " + city.population.toLocaleString() + "</h3>")
-.addTo(map);
-});
+//  Add a marker to the map for Los Angeles, California.
+let circle = L.circleMarker([34.0522, -118.2437], {
+    radius: 300,
+    color: 'black',
+    fillcolor: 'ffffa1'}
+    ).addTo(map);
+let marker = L.marker([34.0522, -118.2437]).addTo(map);
+
